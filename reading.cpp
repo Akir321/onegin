@@ -3,7 +3,7 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include "reading.h"
-#include "C:\Users\anton\letka_mipt\int_sorts\colors.h"
+#include "colors.h"
 
 int readTextFromFile(const char *fileName, textArray *text)
 {

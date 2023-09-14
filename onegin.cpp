@@ -12,31 +12,27 @@ int main ()
     textArray text = {};
 
     readTextFromFile(fileIn, &text);
-    FILE *f =  fopen(fileOut, "w");
-    if (!f)
-    {
-        perror("main(): fopen()");
-        return 1;
-    }
+    //FILE *f =  fopen(fileOut, "w");
+    //if (!f) { perror("main(): fopen()"); return 1; }
     printText(text.strings, text.nLines);
     printf("\n\n");
     //printTextToFile(&text, f);
-    fputc('a', f);
-    fprintf(f, "abc\n\n");
+    //if (fputc('a', f) == EOF) perror("EOF");
+    //fprintf(f, "abc\n\n");
 
     qsort(text.strings, text.nLines, sizeof(string), myStrCmp);
     printText(text.strings, text.nLines);
     printf("\n\n");
     //printTextToFile(&text, f);
-    fprintf(f, "\n\n");
+    //fprintf(f, "\n\n");
 
     qsort(text.strings, text.nLines, sizeof(string), myStrBackCmp);
     printText(text.strings, text.nLines);
     //printTextToFile(&text, f);
-    fprintf(f, "\n\n");
+    //fprintf(f, "\n\n");
 
-    fputs(text.buffer, f);
+    //fputs(text.buffer, f);
 
-    fclose(f);
+    //fclose(f);
     destroyTextArray(&text);
 }
