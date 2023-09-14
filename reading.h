@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-struct string
+struct str
 {
     char *str;
     size_t size;
@@ -15,7 +15,7 @@ struct textArray
     size_t nLines;
 
     char *buffer;
-    string *strings;
+    str *strings;
 };
 
 void destroyTextArray(textArray *text);
@@ -32,7 +32,7 @@ int splitBufToStrings(textArray *text);
 
 size_t countLines(const char *buffer);
 
-void printText(string *text, size_t nLines);
+void printText(str *text, size_t nLines);
 
 void myPuts(const char *str);
 
