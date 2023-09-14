@@ -96,8 +96,9 @@ int splitBufToStrings(textArray *text)
         return 1;
     }
 
-    text->strings++->str = text->buffer; //////weeeeeiiiird
+    text->strings++->str = text->buffer;
     size_t line = 1;
+    size_t strSize = 1;
 
     for (size_t i = 0 ; *(text->buffer + i) != '\0'; i++)
     {
@@ -107,12 +108,19 @@ int splitBufToStrings(textArray *text)
             printf("*buffer is '\\n'\n");
             printf("strings  = %p\n", text->strings);
             printf("*strings = %p\n", text->strings->str);
+
             text->strings->str = text->buffer + i + 1;
             printf("*strings = %p\n", text->strings->str);
+            (text->strings - 1)->size = strSize - 1;
+            strSize = 0;
+
             text->strings++;
             line++;
         }
+        strSize++;
     }
+    (text->strings-1)->size = strSize - 1;
+
     text->strings -= line;
     text->nLines = line;
     return 0;
@@ -146,7 +154,7 @@ void printText(string *text, size_t nLines)
         printf(DEFAULT_COLOR);
         putchar('>');
         printf(CYAN);
-        printf(", address = %p\n", text[i].str);
+        printf(", size = %lld address = %p\n", text[i].size, text[i].str);
         printf(DEFAULT_COLOR);
     }
 }

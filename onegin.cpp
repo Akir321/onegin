@@ -16,6 +16,10 @@ int main ()
 
     qsort(text.strings, text.nLines, sizeof(string), myStrCmp);
     printText(text.strings, text.nLines);
+    printf("\n\n");
+
+    qsort(text.strings, text.nLines, sizeof(string), myStrBackCmp);
+    printText(text.strings, text.nLines);
 
     destroyTextArray(&text);
 }

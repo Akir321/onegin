@@ -5,6 +5,6 @@
 
 int myStrCmp(const void *s1, const void *s2);
 
-int myStrCmp2(const void *s1, const void *s2);
+int myStrBackCmp(const void *s1, const void *s2);
 
 #endif //SORTS_H
