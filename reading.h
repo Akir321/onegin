@@ -36,4 +36,8 @@ void printText(string *text, size_t nLines);
 
 void myPuts(const char *str);
 
+void myFPuts(const char *str, FILE *f);
+
+void printTextToFile(const textArray *text, FILE *f);
+
 #endif // READING_H

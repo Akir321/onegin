@@ -170,6 +170,29 @@ void myPuts(const char *str)
     putchar('\n');
 }
 
+void myFPuts(const char *str, FILE *f)
+{
+    assert(str);
+    assert(f);
+
+    for ( ; *str != '\0' && *str != '\n'; str++)
+    {
+        if (fputc(*str, f) == -1) perror("myFPuts");
+    }
+    fputc('\n', f);
+}
+
+void printTextToFile(const textArray *text, FILE *f)
+{
+    assert(f);
+    assert(text);
+
+    for (size_t i = 0; i < text->nLines; i++)
+    {
+        myFPuts(text->strings[i].str, f);
+    }
+}
+
 void destroyTextArray(textArray *text)
 {
     assert(text);
