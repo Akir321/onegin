@@ -16,7 +16,7 @@ int readTextFromFile(const char *fileName, textArray *text)
         perror("ERROR");
         return 1; 
     }
-    printf("size = %lld\n", text->size);
+    //printf("size = %lld\n", text->size);
 
     FILE *f = fopen(fileName, "r");
     if (!f)      
@@ -33,7 +33,7 @@ int readTextFromFile(const char *fileName, textArray *text)
     }
     fclose(f);
 
-    printStr(text->buffer, text->size);
+    //printStr(text->buffer, text->size);
 
     splitBufToStrings(text);
     if (!text->strings) 
@@ -102,15 +102,15 @@ int splitBufToStrings(textArray *text)
 
     for (size_t i = 0 ; *(text->buffer + i) != '\0'; i++)
     {
-        printf("separating the line, current elem is (%d)\n", *(text->buffer + i));
+        //printf("separating the line, current elem is (%d)\n", *(text->buffer + i));
         if (*(text->buffer + i) == '\n')
         {
-            printf("*buffer is '\\n'\n");
-            printf("strings  = %p\n", text->strings);
-            printf("*strings = %p\n", text->strings->str);
+            //printf("*buffer is '\\n'\n");
+            //printf("strings  = %p\n", text->strings);
+            //printf("*strings = %p\n", text->strings->str);
 
             text->strings->str = text->buffer + i + 1;
-            printf("*strings = %p\n", text->strings->str);
+            //printf("*strings = %p\n", text->strings->str);
             (text->strings - 1)->size = strSize - 1;
             strSize = 0;
 
@@ -177,7 +177,7 @@ void myFPuts(const char *str, FILE *f)
 
     for ( ; *str != '\0' && *str != '\n'; str++)
     {
-        if (fputc(*str, f) == -1) perror("myFPuts");
+        fputc(*str, f);
     }
     fputc('\n', f);
 }
