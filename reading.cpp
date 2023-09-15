@@ -105,6 +105,10 @@ int splitBufToStrings(textArray *text)
         //printf("separating the line, current elem is (%d)\n", *(text->buffer + i));
         if (*(text->buffer + i) == '\n')
         {
+            while (*(text->buffer + i + 1) == '\n')
+            {
+                i++;
+            }
             //printf("*buffer is '\\n'\n");
             //printf("strings  = %p\n", text->strings);
             //printf("*strings = %p\n", text->strings->str);
