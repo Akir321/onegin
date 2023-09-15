@@ -17,14 +17,14 @@ int myStrCmp(const void *s1, const void *s2)
     while (!isalpha(*str1) && *str1 != '\0' && *str1 != '\n') { str1++; }
     while (!isalpha(*str2) && *str2 != '\0' && *str2 != '\n') { str2++; }
 
-    while (*str1 == *str2  && *str1 != '\0' && *str1 != '\n')
+    while (tolower(*str1) == tolower(*str2)  && *str1 != '\0' && *str1 != '\n')
     {
         str1++;
         str2++;
         while (!isalpha(*str1) && *str1 != '\0' && *str1 != '\n') { str1++; }
         while (!isalpha(*str2) && *str2 != '\0' && *str2 != '\n') { str2++; }
     }
-    return *str1 - *str2;
+    return tolower(*str1) - tolower(*str2);
 }
 
 int myStrBackCmp(const void *s1, const void *s2)
@@ -41,14 +41,14 @@ int myStrBackCmp(const void *s1, const void *s2)
     while (!isalpha(str1[i1]) && i1 >= 0) { i1--; }
     while (!isalpha(str2[i2]) && i2 >= 0) { i2--; }
 
-    while (str1[i1] == str2[i2] && i1 >= 0 && i2 >= 0)
+    while (tolower(str1[i1]) == tolower(str2[i2]) && i1 >= 0 && i2 >= 0)
     {
         i1--;
         i2--;
         while (!isalpha(str1[i1]) && i1 >= 0) { i1--; }
         while (!isalpha(str2[i2]) && i2 >= 0) { i2--; }
     }
-    return str1[i1] - str2[i2];
+    return tolower(str1[i1]) - tolower(str2[i2]);
 }
 
 void quickSort(str *array, size_t left, size_t right, int (*comp)(const str *, const str *))
