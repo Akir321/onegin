@@ -40,4 +40,6 @@ void myFPuts(const char *str, FILE *f);
 
 void printTextToFile(const textArray *text, FILE *f);
 
+size_t min(size_t a, size_t b);
+
 #endif // READING_H

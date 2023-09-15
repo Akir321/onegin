@@ -13,19 +13,17 @@ int main ()
 
     readTextFromFile(fileIn, &text);
     FILE *f =  fopen(fileOut, "w");
-    //if (!f) { perror("main(): fopen()"); return 1; }
-    //printText(text.strings, text.nLines);
+    if (!f) 
+    { 
+        perror("main(): fopen()");
+        return 1; 
+    }
 
     quickSort(text.strings, 0, text.nLines - 1, (int (*)(const str *, const str *))myStrCmp);
-    //qsort(text.strings, text.nLines, sizeof(str), myStrCmp);
-    //printText(text.strings, text.nLines);
-    //printf("\n\n");
     printTextToFile(&text, f);
     fprintf(f, "\n\n\n\n\n");
 
     quickSort(text.strings, 0, text.nLines - 1, (int (*)(const str *, const str *))myStrBackCmp);
-    //qsort(text.strings, text.nLines, sizeof(str), myStrBackCmp);
-    //printText(text.strings, text.nLines);
     printTextToFile(&text, f);
     fprintf(f, "\n\n\n\n\n");
 

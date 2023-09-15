@@ -96,11 +96,14 @@ size_t partition(str *array, size_t left, size_t right, int (*comp)(const str *,
         }
 
         swap(array + right, array + left);
-        //if      (right == mid)   mid = left;
-        //else if (left  == mid)   mid = right;
 
         right--;
         left++;
+    }
+    mid = min(left, right);
+    if (comp(array + mid, &pivot) > 0)
+    {
+        mid--;
     }
     return mid;
 }
@@ -110,4 +113,9 @@ void swap(str *a, str *b)
     str temp = *a;
     *a = *b;
     *b = temp;
+}
+
+size_t min(size_t a, size_t b)
+{
+    return (a < b) ? a : b;
 }
