@@ -12,15 +12,15 @@ int main ()
     textArray text = {};
 
     FILE *f =  fopen(fileOut, "w");
-    fputs("hello world\n", f);
+    //fputs("hello world\n", f);
 
     readTextFromFile(fileIn, &text);
     //FILE *f =  fopen(fileOut, "w");
     //if (!f) { perror("main(): fopen()"); return 1; }
-    printText(text.strings, text.nLines);
+    //printText(text.strings, text.nLines);
     printf("\n\n");
-    printTextToFile(&text, f);
-    //fputc('a', f);
+    //printTextToFile(&text, f);
+    fputc('a', f);
     fputs("hello world\n", f);
     fprintf(f, "abc\n\n");
 

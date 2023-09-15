@@ -89,7 +89,7 @@ int splitBufToStrings(textArray *text)
     assert(text->buffer);
 
     text->nLines = countLines(text->buffer);
-    text->strings = (str *)calloc(text->nLines, sizeof(str *));
+    text->strings = (str *)calloc(text->nLines, sizeof(str));
 
     if (text->strings == NULL)
     {
