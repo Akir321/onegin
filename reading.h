@@ -30,7 +30,7 @@ void printStr(char *str, size_t size);
 
 int splitBufToStrings(textArray *text);
 
-size_t countLines(const char *buffer);
+size_t countChar(const char *buffer, char c);
 
 void printText(str *text, size_t nLines);
 

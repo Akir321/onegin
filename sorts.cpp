@@ -86,7 +86,6 @@ size_t partition(str *array, size_t left, size_t right, int (*comp)(const str *,
 
     while (left < right)
     {
-        // do we need (left < right) in while?
         while (comp(array + left,  &pivot) < 0) { left++;  }
         while (comp(array + right, &pivot) > 0) { right--; }
 

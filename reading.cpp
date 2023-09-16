@@ -88,7 +88,7 @@ int splitBufToStrings(textArray *text)
     assert(text);
     assert(text->buffer);
 
-    text->nLines = countLines(text->buffer);
+    text->nLines = countChar(text->buffer, '\n') + 1;
     text->strings = (str *)calloc(text->nLines, sizeof(str));
 
     if (text->strings == NULL)
@@ -130,20 +130,20 @@ int splitBufToStrings(textArray *text)
     return 0;
 }
 
-size_t countLines(const char *buffer)
+size_t countChar(const char *buffer, char c)
 {
     assert(buffer);
 
     size_t count = 0;
     while (*buffer != '\0')
     {
-        if (*buffer == '\n')
+        if (*buffer == c)
         {
             count++;
         }
         buffer++;
     }
-    return count + 1; 
+    return count; 
 }
 
 void printText(str *text, size_t nLines)
