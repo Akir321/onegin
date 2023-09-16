@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 
+const int NAME_ADD_LENGTH = 7;
+
 struct str
 {
     char *str;
@@ -16,6 +18,12 @@ struct textArray
 
     char *buffer;
     str *strings;
+};
+
+enum errors
+{
+    FILE_ERROR = 1,
+    MEMORY_ERROR = 2
 };
 
 void destroyTextArray(textArray *text);

@@ -14,7 +14,7 @@ int readTextFromFile(const char *fileName, textArray *text)
     if (!text->size)  
     { 
         perror("ERROR");
-        return 1; 
+        return FILE_ERROR; 
     }
     //printf("size = %lld\n", text->size);
 
@@ -22,14 +22,14 @@ int readTextFromFile(const char *fileName, textArray *text)
     if (!f)      
     { 
         perror("ERROR"); 
-        return 1; 
+        return FILE_ERROR; 
     }
 
     text->buffer = readToBuffer(f, text->size);
     if (!text->buffer) 
     { 
         perror("ERROR"); 
-        return 1; 
+        return MEMORY_ERROR; 
     }
     fclose(f);
 
@@ -39,7 +39,7 @@ int readTextFromFile(const char *fileName, textArray *text)
     if (!text->strings) 
     { 
         perror("ERROR"); 
-        return 1; 
+        return MEMORY_ERROR; 
     }
 
     return 0;
@@ -93,7 +93,7 @@ int splitBufToStrings(textArray *text)
 
     if (text->strings == NULL)
     {
-        return 1;
+        return MEMORY_ERROR;
     }
 
     text->strings++->str = text->buffer;

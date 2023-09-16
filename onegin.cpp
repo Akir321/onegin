@@ -1,20 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "reading.h"
 #include "sorts.h"
 
-int main ()
+int main (int argc, const char *argv[])
 {
     const char *fileIn  = "Onegin.txt";
     const char *fileOut = "sorted_onegin.txt";
+    char *newFileOut = NULL;
     textArray text = {};
 
-    readTextFromFile(fileIn, &text);
-    FILE *f =  fopen(fileOut, "w");
+    if (argc > 1)
+    {
+        fileIn = argv[1];
+        newFileOut = (char *)calloc(NAME_ADD_LENGTH + strlen(argv[1]) + 1, sizeof(char));
+        strcat(newFileOut, "sorted_");
+        strcat(newFileOut, argv[1]);
+    }
+
+    if (readTextFromFile(fileIn, &text) == FILE_ERROR)
+    {
+        printf ("Couldn't open file %s\n", fileIn);
+        return 0;
+    }
+    FILE *f =  fopen(argc > 1 ? newFileOut : fileOut, "w");
     if (!f) 
     { 
-        perror("main(): fopen()");
         return 1; 
     }
 
