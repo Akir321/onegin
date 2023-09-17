@@ -3,7 +3,7 @@
 #include <ctype.h>
 
 #include "sorts.h"
-#include "reading.h"
+#include "io.h"
 
 
 int myStrCmp(const void *s1, const void *s2)

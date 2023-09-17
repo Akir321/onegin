@@ -2,7 +2,7 @@
 #define SORTS_H
 
 #include <stdio.h>
-#include "reading.h"
+#include "io.h"
 
 int myStrCmp(const void *s1, const void *s2);
 

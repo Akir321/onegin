@@ -1,5 +1,5 @@
-#ifndef READING_H
-#define READING_H
+#ifndef IO_H
+#define IO_H
 
 #include <stdio.h>
 
@@ -50,4 +50,4 @@ void printTextToFile(const textArray *text, FILE *f);
 
 size_t min(size_t a, size_t b);
 
-#endif // READING_H
+#endif // IO_H

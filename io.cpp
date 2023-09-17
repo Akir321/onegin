@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <sys/stat.h>
 #include <stdlib.h>
-#include "reading.h"
+#include "io.h"
 #include "colors.h"
 
 int readTextFromFile(const char *fileName, textArray *text)

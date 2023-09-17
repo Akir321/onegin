@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "reading.h"
+#include "io.h"
 #include "sorts.h"
 
 int main (int argc, const char *argv[])
