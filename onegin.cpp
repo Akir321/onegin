@@ -16,8 +16,7 @@ int main (int argc, const char *argv[])
     {
         fileIn = argv[1];
         newFileOut = (char *)calloc(NAME_ADD_LENGTH + strlen(argv[1]) + 1, sizeof(char));
-        strcat(newFileOut, "sorted_");
-        strcat(newFileOut, argv[1]);
+        sprintf(newFileOut, "sorted_%s", argv[1]);
     }
 
     if (readTextFromFile(fileIn, &text) == FILE_ERROR)
@@ -25,6 +24,7 @@ int main (int argc, const char *argv[])
         printf ("Couldn't open file %s\n", fileIn);
         return 0;
     }
+    
     FILE *f =  fopen(argc > 1 ? newFileOut : fileOut, "w");
     if (!f) 
     { 

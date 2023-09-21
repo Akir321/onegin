@@ -54,6 +54,7 @@ int myStrBackCmp(const void *s1, const void *s2)
 void quickSort(str *array, size_t left, size_t right, int (*comp)(const str *, const str *))
 {
     assert(array);
+    assert(comp);
 
     //printf("left = %lld, right = %lld\n", left, right);
 
@@ -78,6 +79,7 @@ void quickSort(str *array, size_t left, size_t right, int (*comp)(const str *, c
 size_t partition(str *array, size_t left, size_t right, int (*comp)(const str *, const str *))
 {
     assert(array);
+    assert(comp);
 
     size_t mid = (left + right) / 2;
     str pivot = array[mid];
@@ -109,6 +111,10 @@ size_t partition(str *array, size_t left, size_t right, int (*comp)(const str *,
 
 void swap(str *a, str *b)
 {
+    assert(a);
+    assert(b);
+    assert(a != b);
+
     str temp = *a;
     *a = *b;
     *b = temp;
