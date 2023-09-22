@@ -1,5 +1,5 @@
 hi
-    hello,..
+hello
 does
-it..,
+it
 work
